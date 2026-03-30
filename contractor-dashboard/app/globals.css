@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #05070b;
+  color: #e5e7eb;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #00ffd1;
+}
+
+a:hover {
+  color: #7affea;
+}
+
+/* Contrast-first utility tokens for key surfaces and text */
+.bg-background {
+  background-color: #05070b;
+}
+
+.bg-surface {
+  background-color: #101827;
+}
+
+.text-foreground {
+  color: #e5e7eb;
+}
+
+.text-muted {
+  color: #b6c0cc;
+}
+
+.text-neonTeal {
+  color: #00ffd1;
+}
+
+.text-accentOrange {
+  color: #ffbd17;
+}
+
+.border-neonTeal\/25 {
+  border-color: rgba(0, 255, 209, 0.25);
+}
+
+.border-neonTeal\/40 {
+  border-color: rgba(0, 255, 209, 0.4);
+}
+
+.border-accentOrange\/40 {
+  border-color: rgba(255, 189, 23, 0.4);
+}
+
+.hover\:bg-neonTeal\/10:hover {
+  background-color: rgba(0, 255, 209, 0.1);
+}
+
+.metric-card-surface {
+  background-image: linear-gradient(
+    180deg,
+    rgba(16, 24, 39, 0.95) 0%,
+    rgba(10, 16, 27, 0.98) 100%
+  );
+  color: #e5e7eb;
+  border: 1px solid rgba(0, 255, 209, 0.25);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 209, 0.08),
+    0 12px 24px rgba(2, 6, 23, 0.35);
+}

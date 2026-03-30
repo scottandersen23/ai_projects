@@ -1,0 +1,198 @@
+openapi: 3.0.3
+info:
+  title: ContractorAI Dashboard API
+  version: 0.1.0
+  description: API contract for dashboard summary metrics, metric details, and layout preferences.
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/metrics:
+    get:
+      summary: Get dashboard summary metrics
+      operationId: getMetrics
+      description: Returns dashboard cards using default `this_week` time window unless overridden by query.
+      parameters:
+        - in: query
+          name: timeRange
+          required: false
+          schema:
+            type: string
+            default: this_week
+      responses:
+        "200":
+          description: Summary metric cards
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [metrics]
+                properties:
+                  metrics:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/DashboardMetric"
+  /api/metrics/{metricId}:
+    get:
+      summary: Get detail payload for one metric
+      operationId: getMetricDetail
+      parameters:
+        - in: path
+          name: metricId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Metric detail payload
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MetricDetail"
+        "404":
+          description: Metric not found
+  /api/dashboard-layout:
+    get:
+      summary: Get current user's dashboard layout preferences
+      operationId: getDashboardLayout
+      responses:
+        "200":
+          description: Layout preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardLayoutPreference"
+    post:
+      summary: Save current user's dashboard layout preferences
+      operationId: saveDashboardLayout
+      description: Applies last-write-wins using revision timestamp from payload.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DashboardLayoutPreferenceInput"
+      responses:
+        "200":
+          description: Saved layout preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardLayoutPreference"
+        "400":
+          description: Invalid layout payload
+components:
+  schemas:
+    DashboardMetric:
+      type: object
+      required: [metricId, label, value, timeRange, isCore]
+      properties:
+        metricId:
+          type: string
+        label:
+          type: string
+        value:
+          oneOf:
+            - type: number
+            - type: string
+        unit:
+          type: string
+          enum: [count, currency, percent]
+        trendDirection:
+          type: string
+          enum: [up, down, flat]
+        trendDelta:
+          type: number
+        timeRange:
+          type: string
+        isCore:
+          type: boolean
+    MetricDetail:
+      type: object
+      required: [metricId, headlineValue, lastUpdatedAt]
+      properties:
+        metricId:
+          type: string
+        headlineValue:
+          oneOf:
+            - type: number
+            - type: string
+        breakdownItems:
+          type: array
+          items:
+            $ref: "#/components/schemas/LabeledValue"
+        historyPoints:
+          type: array
+          items:
+            $ref: "#/components/schemas/HistoryPoint"
+        lastUpdatedAt:
+          type: string
+          format: date-time
+    DashboardLayoutPreference:
+      type: object
+      required: [ownerId, cards, revisionTs, updatedAt]
+      properties:
+        ownerId:
+          type: string
+        cards:
+          type: array
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/LayoutCard"
+        revisionTs:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DashboardLayoutPreferenceInput:
+      type: object
+      required: [cards, revisionTs]
+      properties:
+        cards:
+          type: array
+          maxItems: 6
+          items:
+            $ref: "#/components/schemas/LayoutCard"
+        revisionTs:
+          type: string
+          format: date-time
+    LayoutCard:
+      type: object
+      required: [metricId, x, y, w, h, visible]
+      properties:
+        metricId:
+          type: string
+        x:
+          type: integer
+          minimum: 0
+        y:
+          type: integer
+          minimum: 0
+        w:
+          type: integer
+          minimum: 1
+        h:
+          type: integer
+          minimum: 1
+        visible:
+          type: boolean
+    LabeledValue:
+      type: object
+      required: [label, value]
+      properties:
+        label:
+          type: string
+        value:
+          oneOf:
+            - type: number
+            - type: string
+    HistoryPoint:
+      type: object
+      required: [period, value]
+      properties:
+        period:
+          type: string
+        value:
+          oneOf:
+            - type: number
+            - type: string

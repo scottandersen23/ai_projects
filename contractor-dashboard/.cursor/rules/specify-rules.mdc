@@ -1,0 +1,38 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# contractor-dashboard Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-03-27
+
+## Active Technologies
+- TypeScript on Node.js runtime with Next.js compatibility + Next.js, React, Tailwind CSS, Vercel Serverless Functions (001-contractorai-dashboard)
+- No formal database in v1; seeded metric data + local/browser layout persistence. Supabase local integration deferred. (001-contractorai-dashboard)
+
+- TypeScript (current Next.js-compatible version), JavaScript runtime on Node.js + Next.js, React, Tailwind CSS, Vercel Serverless Functions (001-contractorai-dashboard)
+
+## Project Structure
+
+```text
+src/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript (current Next.js-compatible version), JavaScript runtime on Node.js: Follow standard conventions
+
+## Recent Changes
+- 001-contractorai-dashboard: Added TypeScript on Node.js runtime with Next.js compatibility + Next.js, React, Tailwind CSS, Vercel Serverless Functions
+
+- 001-contractorai-dashboard: Added TypeScript (current Next.js-compatible version), JavaScript runtime on Node.js + Next.js, React, Tailwind CSS, Vercel Serverless Functions
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
