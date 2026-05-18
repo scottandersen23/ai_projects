@@ -10923,7 +10923,6 @@ I'll execute these systematically.
 
 _**Agent (default)**_
 
-
 Running speckit.implement: prerequisites, checklist scan, then completing remaining tasks (T001, T002, T033) and validating the build.
 
 
@@ -11045,13 +11044,6 @@ Let me read plan.md to append T033 content.
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
 <details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/package.json</summary>
 
@@ -11125,13 +11117,6 @@ Run npm test && npm run lint per project rules - user rules say npm test && npm 
 
 _**Agent (default)**_
 
-
-
-
-
-
-_**Agent (default)**_
-
 <tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
 <details>
 <summary>Tool use: **ripgrep_raw_search**</summary>
@@ -11176,4 +11161,897 @@ _**Agent (default)**_
 
 No test script - run lint and build instead per cursor rules from workspace: npm test && npm run lint - I'll run npm run lint && npm run typecheck && npm run build
 
-Actually add test script placeholder? User did</details></think>
+Actually add test script placeholder? User didn't ask - just run lint + build.
+
+Append plan.md section for T033.
+
+Update tasks report section - total 44 complete, 0 open.
+</details></think>
+
+_**Agent (default)**_
+
+Checklist status: `requirements.md` — 16/16 complete → PASS. Completing T001–T002 (verified), T033 (documenting file justification in `plan.md`), and marking tasks complete.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/specs/001-contractorai-dashboard/plan.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/specs/001-contractorai-dashboard/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/specs/001-contractorai-dashboard/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+The string to replace was not found in the file.
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The report section has different formatting - read file end and fix
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/specs/001-contractorai-dashboard/tasks.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+StrReplace the Open tasks row
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/specs/001-contractorai-dashboard/tasks.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run Shell: git rev-parse, npm run lint, npm run build
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && git rev-parse --git-dir 2>/dev/null; npm run lint && npm run typecheck && npm run build</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && git rev-parse --git-dir 2>/dev/null; npm run lint && npm run typecheck && npm run build
+```
+
+```
+/Users/scottandersen/AI_accelerator/ai_projects/.git
+
+&gt; contractor-dashboard@0.1.0 lint
+&gt; next lint
+
+Invalid project directory provided, no such directory: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lint
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+next lint failed - weird path issue. Might be Next.js 16 interpreting "lint" as directory. Let me check - actually the error says "Invalid project directory provided, no such directory: .../lint" - maybe `next lint` is being parsed wrong. Try `npx next lint` from contractor-dashboard or check eslint config.
+
+Actually could be that next needs to be run differently. Let me read if eslint.config exists
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No next.config - next lint might be broken. Build worked before. Run typecheck and build only. For T001 we could add eslint - but that expands scope. The implement command asked to verify - lint failed due to Next CLI quirk.
+
+Let me try: `cd contractor-dashboard && npx next lint .` or `./node_modules/.bin/next lint`
+
+Actually error "no such directory: .../lint" - perhaps npm is passing extra args. Try `npm run build` alone which worked.
+
+I'll run typecheck and build. If lint is broken project-wide, note in summary - could add minimal eslint - user didn't ask. I'll try `npx next lint` with explicit .
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && ./node_modules/.bin/next lint .</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && ./node_modules/.bin/next lint .
+```
+
+```
+Invalid project directory provided, no such directory: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lint
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The `.` is being interpreted as something that adds /lint - weird. Try `next lint` without args
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && ./node_modules/.bin/next --help 2>&1 | head -40</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && ./node_modules/.bin/next --help 2>&1 | head -40
+```
+
+```
+Usage: next [options] [command]
+
+The Next.js CLI allows you to develop, build, start your application, and more.
+
+Options:
+  -v, --version                               Outputs the Next.js version.
+  -h, --help                                  Displays this message.
+
+Commands:
+  build [directory] [options]                 Creates an optimized production build of your application. The output displays information about each route.
+  experimental-analyze [options] [directory]  Analyze production bundle output with an interactive web ui. Does not produce an application build. Only compatible with Turbopack.
+  dev [directory] [options]                   Starts Next.js in development mode with hot-code reloading, error reporting, and more.
+  info [options]                              Prints relevant details about the current system which can be used to report Next.js bugs.
+  start [directory] [options]                 Starts Next.js in production mode. The application should be compiled with &#96;next build&#96; first.
+  telemetry [options] [arg]                   Allows you to enable or disable Next.js' completely anonymous telemetry collection.
+  typegen [directory] [options]               Generate TypeScript definitions for routes, pages, and layouts without running a full build.
+  upgrade [directory] [options]               Upgrade Next.js apps to desired versions with a single command.
+  experimental-test [directory] [options]     Execute &#96;next/experimental/testmode&#96; tests using a specified test runner. The test runner defaults to 'playwright' if the &#96;experimental.defaultTestRunner&#96; configuration option or the &#96;--test-runner&#96; option are not set.
+  internal [options] [command]                Internal debugging commands. Use with caution. Not covered by semver.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Next.js 16 removed `next lint` from the CLI - the package.json has `"lint": "next lint"` which fails because `lint` is not a command and gets interpreted as directory. I need to fix T001-related package.json scripts to use eslint directly or eslint-config-next.
+
+I'll add eslint with next config for T001 completion - actually the task was "Initialize" scaffolding - minimal fix: update lint script to `eslint .` or use `npx eslint` with flat config.
+
+Simplest fix for Next 16: install eslint and eslint-config-next, add eslint.config.mjs per Next 16 docs, change script to "eslint ."
+
+That's a bigger change. Simpler: change script to `echo 'Lint: configure ESLint for Next 16' && tsc --noEmit` - bad.
+
+Better: use `eslint` - check if eslint is installed
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/package-lock.json",
+  "pattern": "eslint"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/package-lock.json",
+  "pattern": "eslint",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+No eslint in lockfile. The implement workflow should fix lint to work. I'll add minimal eslint setup:
+- eslint, @eslint/js, typescript-eslint, eslint-plugin-react, eslint-plugin-react-hooks
+- eslint.config.mjs
+
+Actually Next.js 16 might recommend using biome or different - simplest fix for "npm run lint": 
+
+Option A: `"lint": "tsc --noEmit"` duplicate of typecheck
+Option B: Add eslint flat config
+
+I'll add eslint-config-next if compatible with Next 16 - web search says next/core-web-vitals
+
+Let me add minimal package.json script:
+`"lint": "tsc --noEmit"` 
+and document that next lint was removed - OR install eslint.
+
+User workspace rules say `npm test && npm run lint` - I'll add devDependencies eslint eslint-config-next and create eslint.config.mjs per Next.js doc.
+
+Actually running npm install needs network. I'll use required_permissions network.
+
+Or use minimal eslint.config.mjs with typescript-eslint without next plugin first - `eslint . --max-warnings 0` 
+
+Quick approach from Next 15+ : 
+https://nextjs.org/docs/app/building-your-application/configuring/eslint
+
+I'll read next package for eslint peer
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/node_modules/next/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+next lint removed from CLI. I'll update package.json:
+`"lint": "tsc --noEmit"` is redundant with typecheck.
+
+Best: add eslint 9 + typescript-eslint + eslint-plugin-react with eslint.config.mjs - minimal config.
+
+Actually the smallest fix: `"lint": "npm run typecheck"` so lint passes and validates - duplicates.
+
+Or `"lint": "echo 'ESLint optional; run typecheck' && npm run typecheck"` 
+
+I'll add eslint with flat config - standard for Next 16 projects. Run npm install eslint typescript-eslint @eslint/js --save-dev
+
+Let me try npm install with network
+</details></think>
+
+_**Agent (default)**_
+
+Replacing removed `next lint` with a working ESLint setup so `npm run lint` succeeds.
+
+
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm install --save-dev eslint @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks globals</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm install --save-dev eslint @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks globals
+```
+
+```
+
+added 262 packages, and audited 292 packages in 14s
+
+128 packages are looking for funding
+  run &#96;npm fund&#96; for details
+
+found 0 vulnerabilities
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'eslint-visitor-keys@5.0.1',
+npm warn EBADENGINE   required: { node: '^20.19.0 || ^22.13.0 || &gt;=24' },
+npm warn EBADENGINE   current: { node: 'v22.12.0', npm: '10.9.0' }
+npm warn EBADENGINE }
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Create eslint.config.mjs with typescript-eslint and react recommended for TSX.
+
+```js
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
+
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      parserOptions: { ecmaFeatures: { jsx: true } },
+      globals: { ...globals.browser, ...globals.node },
+    },
+    plugins: { react, "react-hooks": reactHooks },
+    rules: {
+      ...react.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+    },
+    settings: { react: { version: "detect" } },
+  },
+  { ignores: [".next/**", "node_modules/**"] },
+);
+```
+
+Maybe react-hooks v5 needs different import - check.
+
+Let me use simpler config from typescript-eslint docs:
+
+```ts
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  { ignores: ['.next/**', 'node_modules/**'] }
+);
+```
+
+Start minimal - only TS files, no react plugin first to avoid config issues.
+
+Actually add react for TSX.
+
+I'll run eslint --print-config after writing.
+
+Also update package.json lint script to "eslint ."
+
+Add .eslintignore is redundant if ignores in config.
+
+Run npm run lint
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/eslint.config.mjs</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+react.configs.flat.recommended might not exist in all versions - run eslint
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1
+```
+
+```
+
+&gt; contractor-dashboard@0.1.0 lint
+&gt; next lint
+
+Invalid project directory provided, no such directory: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lint
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+package.json still says next lint - I need to update the lint script to eslint .
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Run eslint again - fix react flat config if needed
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1
+```
+
+```
+
+&gt; contractor-dashboard@0.1.0 lint
+&gt; eslint .
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Read terminal output file
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/.cursor/projects/Users-scottandersen-AI-accelerator-ai-projects-contractor-dashboard/terminals/645005.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Huge output - something wrong with eslint scanning huge dirs. Add ignores for .specstory etc.
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/.cursor/projects/Users-scottandersen-AI-accelerator-ai-projects-contractor-dashboard/terminals/645005.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+The ignores for .next need to be global - the `ignores` inside the config block might only apply to that block. In flat config, top-level ignores array is needed.
+
+From eslint flat config: 
+```js
+export default [
+  { ignores: [".next/**", "node_modules/**"] },
+  ...
+];
+```
+
+I'll fix eslint.config.mjs to put ignores first globally.
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/eslint.config.mjs</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Append .eslintignore in .gitignore is already - eslint flat uses ignores in config. Run eslint on app components lib only to be fast: `"lint": "eslint app components lib"` - safer for monorepo.
+
+Actually full `eslint .` with proper ignores should work now.
+
+Run npm run lint again with block_until 60000
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint 2>&1
+```
+
+```
+
+&gt; contractor-dashboard@0.1.0 lint
+&gt; eslint .
+
+
+/Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lib/dashboard-data.ts
+  186:26  error  Expected a &#96;const&#96; assertion instead of a literal type annotation  @typescript-eslint/prefer-as-const
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Fix dashboard-data.ts line 186 - prefer-as-const
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lib/dashboard-data.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Change to `const normalizedRange = "this_week" as const;` or remove variable and use literal
+
+Actually the rule wants:
+`const normalizedRange = "this_week" as const;`
+
+Or use `satisfies` - simplest fix:
+`const normalizedRange = "this_week" as const;`
+
+Then timeRange check uses normalizedRange - read full return
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lib/dashboard-data.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Replace line 186 with `const normalizedRange = "this_week" as const;`
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/lib/dashboard-data.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Add eslint to .gitignore? No - eslint is config. Append .eslintcache if created.
+
+Run npm run lint && npm run typecheck && npm run build
+
+Add eslint to eslint.config ignore for eslint.config.mjs if self-lint issues.
+
+Run lint again
+</details></think>
+
+_**Agent (default)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint && npm run typecheck && npm run build</summary>
+
+```bash
+cd /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard && npm run lint && npm run typecheck && npm run build
+```
+
+```
+
+&gt; contractor-dashboard@0.1.0 lint
+&gt; eslint .
+
+
+&gt; contractor-dashboard@0.1.0 typecheck
+&gt; tsc --noEmit
+
+
+&gt; contractor-dashboard@0.1.0 build
+&gt; next build
+
+▲ Next.js 16.2.1 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.6s
+  Running TypeScript ...
+  Finished TypeScript in 3.0s ...
+  Collecting page data using 1 worker ...
+  Generating static pages using 1 worker (0/5) ...
+  Generating static pages using 1 worker (1/5) 
+  Generating static pages using 1 worker (2/5) 
+  Generating static pages using 1 worker (3/5) 
+✓ Generating static pages using 1 worker (5/5) in 199ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/dashboard-layout
+├ ƒ /api/metrics
+├ ƒ /api/metrics/[metricId]
+└ ƒ /metric/[metricId]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/scottandersen/AI_accelerator/package-lock.json as the root directory.
+ To silence this warning, set &#96;turbopack.root&#96; in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/scottandersen/AI_accelerator/ai_projects/contractor-dashboard/package-lock.json
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (default)**_
+
+<think><details><summary>Thought Process</summary>
+
+Verify .gitignore has eslint cache - optional
+
+Update tasks.md T001 to mention eslint if we're strict - T001 was "Initialize Next.js + Tailwind in package.json" - we added eslint deps - that's enhancement to setup.
+
+Add note in plan or leave as is.
+
+T033 done, T001 T002 done.
+
+Update tasks report section - already done.
+
+Append .eslintignore not needed.
+
+Consider adding `eslint` to eslint config ignore for eslint.config.mjs - file might not lint well - it passed.
+
+Final summary for user.
+</details></think>
+
+_**Agent (default)**_
+
+### Speckit.implement status
+
+**Extension hooks:** No `.specify/extensions.yml` → no pre/post hooks.
+
+**Checklist gate**
+
+| Checklist | Total | Completed | Incomplete | Status |
+|-----------|-------|-----------|------------|--------|
+| `requirements.md` | 16 | 16 | 0 | PASS |
+
+**Tasks:** All **44** tasks (`T001`–`T044`) are now marked complete in `specs/001-contractorai-dashboard/tasks.md`.
+
+**What was done this run**
+
+1. **T001** – Confirmed Next.js + Tailwind in `package.json`. **Next.js 16 removed `next lint`**, so the `lint` script was changed to **`eslint .`**, ESLint devDependencies were added, and **`eslint.config.mjs`** was added (with ignores for `.next/`, `node_modules/`, etc.).
+2. **T002** – Confirmed root shell in `app/layout.tsx` and styles in `app/globals.css` (already present).
+3. **T033** – Added **`## File additions and single-file bias (T033)`** to `specs/001-contractorai-dashboard/plan.md` with a table justifying each top-level file.
+4. **Lint fix** – `lib/dashboard-data.ts`: `normalizedRange` updated to satisfy `@typescript-eslint/prefer-as-const`.
+
+**Validation:** `npm run lint`, `npm run typecheck`, and `npm run build` all succeed.
+
+**Files touched**
+
+- `specs/001-contractorai-dashboard/tasks.md` – T001, T002, T033 → `[x]`; report shows **Open tasks: None**
+- `specs/001-contractorai-dashboard/plan.md` – single-file bias section
+- `package.json` – `lint` script + ESLint-related devDependencies (via `npm install`)
+- `eslint.config.mjs` – **new**
+- `lib/dashboard-data.ts` – const assertion fix
+
+The app behavior from earlier work (Executive layout, metrics, Phase 7) is unchanged aside from lint/type hygiene.

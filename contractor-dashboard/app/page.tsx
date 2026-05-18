@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { AddMetricPanel } from "../components/add-metric-panel";
 import {
   DashboardGrid,
   type LayoutCardState,
 } from "../components/dashboard-grid";
+import { RegionMap } from "../components/region-map";
 import {
   type DashboardMetric,
   type ExecutiveSecondaryMetric,
@@ -27,8 +27,6 @@ type DashboardLayoutSaveResponse = {
   layout: DashboardLayoutApiResponse;
   conflict: boolean;
 };
-
-const MAX_VISIBLE_CARDS = 6;
 
 const SIDEBAR_NAV = [
   { id: "dashboard", label: "Dashboard", active: true },
@@ -198,158 +196,81 @@ export default function DashboardPage() {
   }, [cards, isHydrated]);
 
   const hasMetrics = useMemo(() => metrics.length > 0, [metrics.length]);
-  const visibleCount = useMemo(
-    () => cards.filter((card) => card.visible).length,
-    [cards],
-  );
-
-  const availableToAdd = useMemo(() => {
-    const hiddenIds = new Set(
-      cards.filter((card) => !card.visible).map((card) => card.metricId),
-    );
-    return metrics.filter((metric) => hiddenIds.has(metric.metricId));
-  }, [cards, metrics]);
-
-  const reorderCards = (fromMetricId: string, toMetricId: string) => {
-    setCards((prev) => {
-      const fromIndex = prev.findIndex(
-        (card) => card.metricId === fromMetricId,
-      );
-      const toIndex = prev.findIndex((card) => card.metricId === toMetricId);
-      if (fromIndex < 0 || toIndex < 0) return prev;
-
-      const next = [...prev];
-      const [moved] = next.splice(fromIndex, 1);
-      next.splice(toIndex, 0, moved);
-      return next;
-    });
-  };
-
-  const resizeCard = (metricId: string, nextW: number, nextH: number) => {
-    setCards((prev) =>
-      prev.map((card) =>
-        card.metricId === metricId ? { ...card, w: nextW, h: nextH } : card,
-      ),
-    );
-  };
-
-  const hideCard = (metricId: string) => {
-    setCards((prev) =>
-      prev.map((card) =>
-        card.metricId === metricId ? { ...card, visible: false } : card,
-      ),
-    );
-  };
-
-  const addMetric = (metricId: string) => {
-    if (visibleCount >= MAX_VISIBLE_CARDS) return;
-    setCards((prev) =>
-      prev.map((card) =>
-        card.metricId === metricId ? { ...card, visible: true } : card,
-      ),
-    );
-  };
-
   const mainBody = isLoading ? (
-    <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+    <section className="rounded-md border border-slate-200 bg-white p-6">
+      <h2 className="text-lg font-semibold text-slate-900">
         Loading metrics...
       </h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600">
         Pulling this week&apos;s summary from the dashboard API.
       </p>
     </section>
   ) : loadError ? (
-    <section className="rounded-xl border border-amber-500/50 bg-white p-6 shadow-sm dark:bg-slate-900">
-      <h2 className="text-lg font-semibold text-amber-700 dark:text-amber-400">
+    <section className="rounded-md border border-amber-500/50 bg-white p-6">
+      <h2 className="text-lg font-semibold text-amber-700">
         Metrics unavailable
       </h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600">
         {loadError}. Please refresh or try again shortly.
       </p>
     </section>
   ) : !hasMetrics ? (
-    <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-      <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+    <section className="rounded-md border border-slate-200 bg-white p-6">
+      <h2 className="text-lg font-semibold text-slate-900">
         No metrics available
       </h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-600">
         Metrics are currently unavailable for this week. Please check back
         shortly.
       </p>
     </section>
   ) : (
     <>
-      <DashboardGrid
-        metrics={metrics}
-        cards={cards}
-        onReorder={reorderCards}
-        onResize={resizeCard}
-        onHide={hideCard}
-        trailingEmptySlot
-      />
+      <DashboardGrid metrics={metrics} cards={cards} trailingEmptySlot />
 
-      <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-          <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+      <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,1fr)_240px]">
+        <section className="rounded-md border border-slate-200 bg-white p-4">
+          <h3 className="text-xl font-semibold text-slate-800">
             Recent Jobs by Region
           </h3>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            Heat-style preview (seed data — replace with a live map in a later
-            release).
+          <p className="mt-1 text-xs text-slate-500">
+            Interactive map seeded from regional activity points.
           </p>
-          <div
-            className="mt-3 flex h-64 items-center justify-center rounded-lg bg-gradient-to-br from-amber-100/90 via-orange-50 to-slate-200/80 text-center text-xs text-slate-600 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 dark:text-slate-500"
-            role="img"
-            aria-label="Map placeholder for job density by region"
-          >
-            United States — regional job density (mock)
-          </div>
+          <RegionMap />
         </section>
 
         <div className="flex flex-col gap-3">
           {executiveSecondaryMetrics.map((row) => (
             <section
               key={row.id}
-              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+              className="rounded-md border border-slate-200 bg-white p-4"
             >
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                {row.label}
-              </p>
-              <p className="mt-2 text-2xl font-bold tabular-nums text-slate-900 dark:text-slate-100">
+              <p className="text-sm font-medium text-slate-600">{row.label}</p>
+              <p className="mt-2 text-4xl font-semibold tabular-nums text-slate-800">
                 {formatSecondaryValue(row)}
               </p>
             </section>
           ))}
         </div>
       </div>
-
-      <div className="mt-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-        <AddMetricPanel
-          visibleCount={visibleCount}
-          maxVisible={MAX_VISIBLE_CARDS}
-          availableMetrics={availableToAdd}
-          onAddMetric={addMetric}
-        />
-      </div>
     </>
   );
 
   return (
-    <div className="flex min-h-screen bg-background">
-      <aside className="hidden w-56 shrink-0 flex-col border-r border-slate-800 bg-slate-950 text-slate-200 lg:flex">
-        <div className="border-b border-slate-800 px-4 py-5 text-xs font-semibold uppercase tracking-widest text-slate-500">
-          Logo
+    <div className="flex min-h-screen bg-slate-100 text-slate-900">
+      <aside className="hidden w-52 shrink-0 flex-col border-r border-slate-300 bg-slate-700 text-slate-100 lg:flex">
+        <div className="border-b border-slate-600 px-4 py-5 text-lg font-semibold">
+          i LOGO
         </div>
-        <nav className="flex flex-1 flex-col gap-0.5 p-2" aria-label="Main">
+        <nav className="flex flex-1 flex-col gap-1 px-2 py-3" aria-label="Main">
           {SIDEBAR_NAV.map((item) => (
             <button
               key={item.id}
               type="button"
-              className={`rounded-lg px-3 py-2.5 text-left text-sm font-medium transition ${
+              className={`rounded-md px-3 py-2 text-left text-sm font-medium transition ${
                 item.active
-                  ? "bg-slate-800 text-white"
-                  : "text-slate-400 hover:bg-slate-900 hover:text-slate-200"
+                  ? "bg-slate-600 text-white"
+                  : "text-slate-200/90 hover:bg-slate-600/70"
               }`}
             >
               {item.label}
@@ -359,19 +280,19 @@ export default function DashboardPage() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-slate-200 px-4 py-3 text-slate-900 sm:px-6 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100">
+        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
           <div>
             <h1 className="text-lg font-semibold tracking-tight">
               Executive Dashboard
             </h1>
-            <p className="mt-0.5 text-[11px] text-slate-600 dark:text-slate-400">
+            <p className="mt-0.5 text-[11px] text-slate-500">
               Layout revision: {revisionTs}
               {layoutNotice ? ` · ${layoutNotice}` : ""}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <div
-              className="flex flex-wrap gap-1 rounded-lg bg-white/80 p-0.5 dark:bg-slate-800/80"
+              className="flex flex-wrap gap-1 rounded-md p-0.5"
               role="group"
               aria-label="Time range"
             >
@@ -382,8 +303,8 @@ export default function DashboardPage() {
                   onClick={() => setTimeframe(label)}
                   className={`rounded-md px-2.5 py-1 text-xs font-medium ${
                     timeframe === label
-                      ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                      : "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700"
+                      ? "bg-slate-200 text-slate-900"
+                      : "text-slate-600 hover:bg-slate-100"
                   }`}
                 >
                   {label}
@@ -396,13 +317,13 @@ export default function DashboardPage() {
             <select
               id="region-filter"
               defaultValue="all"
-              className="rounded-md border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-800 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
+              className="rounded-md border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-800"
             >
               <option value="all">All Regions</option>
             </select>
             <button
               type="button"
-              className="rounded-md border border-slate-300 bg-white p-1.5 text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              className="rounded-md border border-slate-300 bg-white p-1.5 text-slate-700 hover:bg-slate-50"
               aria-label="Search"
             >
               <span aria-hidden className="text-base">
@@ -412,7 +333,7 @@ export default function DashboardPage() {
           </div>
         </header>
 
-        <main className="flex-1 bg-slate-100 px-4 py-6 text-slate-900 dark:bg-slate-950 dark:text-slate-100 sm:px-6">
+        <main className="flex-1 bg-slate-100 px-4 py-5 sm:px-6">
           {mainBody}
         </main>
       </div>

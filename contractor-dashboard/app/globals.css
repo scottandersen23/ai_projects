@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,
@@ -9,8 +9,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: #05070b;
-  color: #e5e7eb;
+  background: #f1f3f6;
+  color: #111827;
   font-family:
     Inter,
     system-ui,
@@ -29,63 +29,57 @@ body {
 }
 
 a {
-  color: #00ffd1;
+  color: #2563eb;
 }
 
 a:hover {
-  color: #7affea;
+  color: #1d4ed8;
 }
 
 /* Contrast-first utility tokens for key surfaces and text */
 .bg-background {
-  background-color: #05070b;
+  background-color: #f1f3f6;
 }
 
 .bg-surface {
-  background-color: #101827;
+  background-color: #ffffff;
 }
 
 .text-foreground {
-  color: #e5e7eb;
+  color: #111827;
 }
 
 .text-muted {
-  color: #b6c0cc;
+  color: #6b7280;
 }
 
-.text-neonTeal {
-  color: #00ffd1;
+.text-accentBlue {
+  color: #475569;
 }
 
-.text-accentOrange {
-  color: #ffbd17;
+.text-accentAmber {
+  color: #f59e0b;
 }
 
-.border-neonTeal\/25 {
-  border-color: rgba(0, 255, 209, 0.25);
+.border-accentBlue\/30 {
+  border-color: rgba(71, 85, 105, 0.3);
 }
 
-.border-neonTeal\/40 {
-  border-color: rgba(0, 255, 209, 0.4);
+.border-accentBlue\/50 {
+  border-color: rgba(71, 85, 105, 0.5);
 }
 
-.border-accentOrange\/40 {
-  border-color: rgba(255, 189, 23, 0.4);
+.border-accentAmber\/40 {
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
-.hover\:bg-neonTeal\/10:hover {
-  background-color: rgba(0, 255, 209, 0.1);
+.hover\:bg-accentBlue\/10:hover {
+  background-color: rgba(71, 85, 105, 0.1);
 }
 
 .metric-card-surface {
-  background-image: linear-gradient(
-    180deg,
-    rgba(16, 24, 39, 0.95) 0%,
-    rgba(10, 16, 27, 0.98) 100%
-  );
-  color: #e5e7eb;
-  border: 1px solid rgba(0, 255, 209, 0.25);
-  box-shadow:
-    0 0 0 1px rgba(0, 255, 209, 0.08),
-    0 12px 24px rgba(2, 6, 23, 0.35);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  color: #111827;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
 }

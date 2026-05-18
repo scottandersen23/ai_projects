@@ -100,30 +100,28 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
   const trendLabel = formatTrendDelta(metric);
   const trendClass =
     metric.trendDirection === "down"
-      ? "text-red-400"
+      ? "text-rose-500"
       : metric.trendDirection === "up"
-        ? "text-emerald-400"
-        : "text-muted";
+        ? "text-emerald-600"
+        : "text-slate-500";
 
   const content = (
     <article
-      className={`metric-card-surface rounded-xl border border-neonTeal/25 bg-surface p-4 text-foreground ${className} ${href ? "transition hover:border-neonTeal/40" : ""}`}
+      className={`metric-card-surface rounded-md border border-slate-200 bg-white p-4 text-slate-900 ${className} ${href ? "transition hover:border-slate-300" : ""}`}
     >
-      <p className="text-xs uppercase tracking-wide text-muted">
-        {metric.label}
-      </p>
-      <p className="mt-2 text-3xl font-bold text-foreground">
+      <p className="text-xs font-semibold text-slate-600">{metric.label}</p>
+      <p className="mt-2 text-4xl font-semibold leading-none text-slate-800">
         {formatValue(metric)}
       </p>
       {trendLabel && (
-        <p className={`mt-1 text-sm font-semibold tabular-nums ${trendClass}`}>
-          {metric.trendDirection === "up" && "↑ "}
-          {metric.trendDirection === "down" && "↓ "}
+        <p className={`mt-2 text-base font-medium tabular-nums ${trendClass}`}>
+          {metric.trendDirection === "up" && "+ "}
+          {metric.trendDirection === "down" && "- "}
           {trendLabel}
         </p>
       )}
       {metric.weeklyTrend && metric.weeklyTrend.length > 1 && (
-        <div className="mt-3 rounded border border-neonTeal/20 bg-slate-950/35 p-1">
+        <div className="mt-3 rounded border border-slate-200 bg-slate-50 p-1">
           {/*
             We compute bars, day labels, and value labels from the same
             geometry model to guarantee day tick alignment per bar.
@@ -142,7 +140,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
                   y1="30"
                   x2="100"
                   y2="30"
-                  stroke="#334155"
+                  stroke="#cbd5e1"
                   strokeWidth="0.8"
                 />
                 <line
@@ -150,7 +148,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
                   y1="22"
                   x2="100"
                   y2="22"
-                  stroke="#1f2937"
+                  stroke="#e2e8f0"
                   strokeWidth="0.6"
                 />
                 <line
@@ -158,7 +156,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
                   y1="14"
                   x2="100"
                   y2="14"
-                  stroke="#1f2937"
+                  stroke="#e2e8f0"
                   strokeWidth="0.6"
                 />
                 {bars.map((bar, index) => {
@@ -179,7 +177,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
                         y={Math.max(5, bar.y - 1.4)}
                         textAnchor="middle"
                         fontSize="3"
-                        fill="#cbd5e1"
+                        fill="#64748b"
                         fontWeight="600"
                       >
                         {formatTrendBarLabel(metric.unit, bar.value)}
@@ -204,8 +202,8 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
                     x2="0"
                     y2="0"
                   >
-                    <stop offset="0%" stopColor="#0ea5e9" />
-                    <stop offset="100%" stopColor="#22d3ee" />
+                    <stop offset="0%" stopColor="#cbd5e1" />
+                    <stop offset="100%" stopColor="#94a3b8" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -213,7 +211,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
           })()}
         </div>
       )}
-      <p className="mt-2 text-xs text-neonTeal">Time Range: this week</p>
+      <p className="mt-2 text-xs text-slate-500">Time Range: this week</p>
     </article>
   );
 
@@ -224,7 +222,7 @@ export function MetricCard({ metric, className = "", href }: MetricCardProps) {
   return (
     <Link
       href={href}
-      className="block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neonTeal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
       aria-label={`View ${metric.label} details`}
     >
       {content}

@@ -6,12 +6,12 @@ const config = {
   theme: {
     extend: {
       colors: {
-        background: "#05070B",
-        surface: "#101827",
-        foreground: "#E5E7EB",
-        muted: "#9CA3AF",
-        neonTeal: "#00FFD1",
-        accentOrange: "#FFBD17",
+        background: "#f1f3f6",
+        surface: "#ffffff",
+        foreground: "#111827",
+        muted: "#6b7280",
+        accentBlue: "#475569",
+        accentAmber: "#f59e0b",
       },
     },
   },
